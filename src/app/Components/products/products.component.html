@@ -1,0 +1,98 @@
+<div class="main-product d-flex  pt-2 flex-sm-wrap flex-lg-nowrap justify-content-between  py-5">
+  <div class="main-product my-3">
+    <p> منتجات تصفحتها مؤخرا</p>
+
+    <div class="product">
+
+      <ng-container *ngFor="let lastProduct of lastProducts">
+        <ng-container *ngIf="(searchForProduct == lastProduct.name
+          || searchForProduct == ''
+          ||lastProduct.name.toLowerCase().includes(searchForProduct)
+          ||lastProduct.name.toUpperCase().includes(searchForProduct)
+          )">
+          <ng-container *ngIf="(recievedCatId == lastProduct.catID ||recievedCatId == 0)">
+            <div class="product-info d-flex mt-3">
+              <div class="images">
+                <img src="assets/images/compare_arrows_black_24dp.jpg" alt="" style="cursor:pointer"
+                  [routerLink]="['/product',lastProduct.id]" (click)="getDetails(lastProduct.id)"
+                  (click)="addLastProduct(lastProduct)">
+                <img src="{{lastProduct.imgURL}}" alt="" style="width:300px">
+              </div>
+              <div class="text">
+                <p class="name">
+                  {{lastProduct.name}}
+                </p>
+                <p class="price my-2">
+                  ج.م{{lastProduct.price}}
+                </p>
+                <div class="info d-flex justify-content-between mx-2 ">
+                  <button class="cart" style="font-size:12px" (click)="addCart(lastProduct)">
+                    <img src="assets/images/add_shopping_cart-black-18dp.png">
+                  </button>
+                  <img class="mx-1" src="assets/images/favorite_border-24px.png" alt="" (click)="add(lastProduct)">
+                  <img src="assets/images/share.png" alt="">
+
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div class="product me-2" style="width:90%">
+    <div class="d-flex flex-nowrap">
+      <p class="co" style="width:10%">وصل حديثا</p>
+      <div class="ms-2" style="width:77%">
+        <p style="width:100%;margin-top:15px;height:0px;border-top:2px solid"></p>
+      </div>
+      <button class="btn btn-success p-2" style="width:10%;background-color:#F6F6F6;color:#A3A2D3;border-color:#A3A2D3"
+        (click)="showAllProducts()"> عرض الكل</button>
+    </div>
+    <div class="row">
+      <ng-container *ngFor="let product of productList;let n = index">
+        <ng-container *ngIf="(n+1<=counter)">
+          <ng-container *ngIf="(searchForProduct == product.name
+    || searchForProduct == ''
+    ||product.name.toLowerCase().includes(searchForProduct)
+    ||product.name.toUpperCase().includes(searchForProduct)
+    )">
+            <ng-container *ngIf="(recievedCatId == product.catID ||recievedCatId == 0)">
+
+              <div class="product-info product-data col-lg-3 col-md-4 col-sm-6 p-2 my-2 mx-1 my-3" style="width:200px;">
+                <img src="assets/images/compare_arrows_black_24dp.jpg" alt="" style="cursor:pointer"
+                  [routerLink]="['/product',product.id]" (click)="getDetails(product.id)"
+                  (click)="addLastProduct(product)">
+                <div class="images" style="width:100%">
+                  <img [src]="product.imgURL" alt="..." style="height:200px;width:100%">
+                </div>
+                <div>
+                  <p>{{product.name}}</p>
+                  <div class="rating mt-2" dir="rtl">
+                    <ng-container *ngFor="let i of stars">
+                      <button (click)="starRating(i,n+1)" [ngClass]="{'star':i<=rating}"
+                        style="background-color:#fff;border:none">
+                        <i class="fa-solid fa-star"></i></button>
+                    </ng-container>
+                  </div>
+                  <p class="my-2">{{product.price}}ج.م</p>
+                  <div class="info d-flex justify-content-between mx-2">
+                    <button class="cart" style="font-size:12px" (click)="addCart(product)">
+                      <img src="assets/images/add_shopping_cart-black-18dp.png">
+                      اضف للسلة
+                    </button>
+                    <img class="mx-1" src="assets/images/favorite_border-24px.png" alt="" (click)="add(product)">
+                    <img src="assets/images/share.png" alt="">
+
+                  </div>
+                </div>
+
+              </div>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+
+  </div>
+</div>

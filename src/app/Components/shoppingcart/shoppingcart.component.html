@@ -1,0 +1,46 @@
+<app-header></app-header>
+<div class="container m-5">
+  <h1>سلة التسوق</h1>
+  <button class="btn btn-success my-5" (click)="clearProducts()">حذف كل المنتجات</button>
+
+  <table class="table bg-light p-5">
+    <thead>
+      <tr>
+        <th scope="col">رقم المنتج</th>
+        <th scope="col">الصورة</th>
+        <th scope="col">اسم المنتج</th>
+        <th scope="col">السعر</th>
+        <th scope="col">العدد</th>
+        <th scope="col">الكمية المتوفرة</th>
+        <th scope="col">السعر الكلى</th>
+        <th scope="col">حذف منتج</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of favoriteProducts;let i = index">
+        <th scope="row">{{i+1}}</th>
+        <th scope="row"><img src="{{item.imgURL}}" style="width:100px;height:80px"></th>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}ج.م </td>
+        <td >
+          <div class="d-flex flex-nowrap">
+          <button class="btn btn-dark" [disabled]="item.quantity==item.number"(click)="getmax(i)">+</button>
+          <input  class="form-control mx-2"  style="width:80px;display:inline" type="number" value="1"  [(ngModel)]="item.quantity" min="1">
+          <button class="btn btn-dark" [disabled]="item.quantity==1" (click)="getmin(i)">-</button>
+          </div>
+        </td>
+        <td>{{item.number}}</td>
+        <td>{{item.price * (item.quantity||0)}} ج.م</td>
+        <td><button class='btn btn-danger' (click)='deleteItem(i)'>حذف</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-center">
+    <span style="font-weight:bold;font-size:30px">السعر الكلى : {{total}} ج.م</span>
+  </div>
+  </div>
+
+
+

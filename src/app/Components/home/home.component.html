@@ -1,0 +1,72 @@
+
+<!--start main-header-->
+<div class="header">
+  <div class=" container">
+    <div class="row d-flex flex-lg-nowrap  align-items-center justify-content-between mt-4 ms-lg-2 ms-sm-2">
+      <div class="col-lg-1 col-md-4 col-sm-4">
+      <img  src="assets/images/Path 224.png">
+      </div>
+      <div class=" search col-lg-7 col-md-7  col-sm-7 d-flex flex-nowrap">
+         <input type="text" class="form-control"  placeholder="عم تبحث ؟"    #prd [(ngModel)]="searchForProduct" >
+       </div>
+      <div class="col-lg-1  col-md-5 col-sm-5 ms-lg-2 mt-lg-0 mt-sm-4 ms-sm-4 img text-right">
+        <img src="assets/images/person-24px.png" width="42px" style="cursor:pointer;" [routerLink]="['/About-Me']">
+      </div>
+      <div [routerLink]="['/Shoppingcart']" style="cursor:pointer"
+       class="cart col-lg-2  p-2 col-md-6 col-sm-6  mt-lg-0 mt-sm-4 d-flex align-items-center flex-nowrap justify-content-between">
+        <div>
+          <img src="assets/images/shopping_cart-24px.png">
+        </div>
+        <p style="margin:0px" [routerLink]="['/Shoppingcart']">سلةالتسوق</p>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  <!--end main-header-->
+
+  <!-- start section-header -->
+<div class="section-header mt-5 " >
+  <div class="container">
+  <div class=" d-flex align-items-center px-5">
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="selectedCatId">
+      <option value="0">الاقسام</option>
+      <option *ngFor="let cat of categorys" [value]="cat.id">{{cat.name}} </option>
+    </select>
+    <p class="mx-2 active" [routerLink]="['/Home']">الرئيسية</p>
+    <p class="active1" [routerLink]="['/Wishlist']">قائمة الأمنيات</p>
+    <p class="mx-2 active2" [routerLink]="['/Contact']">تواصل معنا</p>
+    <p  class="active3" [routerLink]="['/About-Me']">من نحن</p>
+  </div>
+  </div>
+</div>
+<!--end section-header-->
+
+<!--start carousl-->
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="assets/images/Image 22@2x.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/images/Image 22@2x.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="assets/images/Image 22@2x.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev " style="background-color:rgba(214, 209, 209, 0.555) ; width:40px ;height:40px; top:70%" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next"  style="background-color:rgba(214, 209, 209, 0.555) ; width:40px ;height:40px; top:70%" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="container-fluid"  style="background-color:#F6F6F6" >
+  <app-products [searchForProduct]="searchForProduct" [recievedCatId]="selectedCatId" ></app-products>
+  </div>
+
+<!--end carousl-->
+

@@ -1,0 +1,65 @@
+*{
+    box-sizing:border-box;
+  }
+  .cart{
+      background-color:#EFEEF8;
+      border-radius:8px;
+      -webkit-border-radius:8px;
+      -moz-border-radius:8px;
+      -ms-border-radius:8px;
+      -o-border-radius:8px;
+  }
+  input::placeholder {
+      text-align:right;
+  }
+
+  .search input{
+      width:100%;
+      background-color:#EFEEF8;
+
+  }
+  .img img{
+    background-color:#EFEEF8;
+    border-radius:8px;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    -ms-border-radius:8px;
+    -o-border-radius:8px;
+  }
+
+
+  /* start section-header */
+
+.section-header{
+    background-color:#EFEEF8;
+    min-width:100%;
+    padding:0px;
+    outline:none;
+  }
+  .section-header select{
+    width:120px;
+  }
+  .section-header .active,
+   .active1,
+   .active2,
+   .active3
+  {
+    padding:20px;
+    margin:0px;
+  cursor:pointer;
+
+  }
+  .section-header .active{
+    background-color:#E0DFF1;
+
+  }
+
+  .section-header .active:hover,
+  .active1:hover,
+  .active2:hover,
+  .active3:hover {
+    background-color:#E0DFF1;
+
+  }
+
+  /* end section-header */

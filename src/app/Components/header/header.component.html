@@ -1,0 +1,19 @@
+<!-- start section-header -->
+<div class="section-header" >
+  <div class="container">
+  <div class=" d-flex align-items-center ">
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="catId" (input)=" onsearchTextChanged()">
+      <option value="0" selected>الأقسام</option>
+      <option  *ngFor="let category of categorys" [value]="category.id">{{category.name}}</option>
+    </select>
+    <p class="mx-2 active" [routerLink]="['/Home']">الرئيسية</p>
+    <p class="active1" [routerLink]="['/Wishlist']">قائمة الأمنيات</p>
+    <p class="mx-2 active2" [routerLink]="['/Contact']">تواصل معنا</p>
+    <p  class="active3" [routerLink]="['/About-Me']">من نحن</p>
+  </div>
+  </div>
+</div>
+<!-- catid{{catId}} -->
+
+
+<!--end section-header-->

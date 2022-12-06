@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="d-flex justify-content-center">
+<div class="card my-5" style="width:60rem">
+    <img [src]="prd?.imgURL" class="card-img-top" alt="..." style="height:600px">
+    <div class="card-body">
+        <div class="text-center my-2">
+        <button class="btn btn-warning" (click)="goPrevious()" [disabled]="currPrdId==prdIdList[0]">السابق</button>
+        <button class="btn btn-danger mx-5" (click)="goBack()">رجوع خطوة</button>
+        <button class="btn btn-info" (click)="goNext()" [disabled]="currPrdId==prdIdList[prdIdList.length-1]">التالى</button>
+        </div>
+      <h5 class="card-title">{{prd?.name}}</h5>
+      <div class="card-text">
+        
+        <h5>السعر:  {{prd?.price}}ج.م</h5>
+        <h5> العدد: {{prd?.quantity}} </h5>
+        <p>
+          وصف المنتج : قميص رجالى اكسفورد قصات ازرق قطن 100% باكمام لمزيد من 
+          الاناقة هادى التصميم ليتناسب مع شرائح واسعة من المستخدمين المفضلين للقميص  الرجالى القطن الموديلات
+           الهادئة ذى الخامة الناعمة القطنية المريحة فى الارتداء والعملية ذات الجودة العالية.
+          يتميز القميص الرجالى الاكسفورد القصات الازرق باللون الازرق السماوى المميز .
+          تتنوع مقاسات القميص الرجالى الاكسفورد القصات الازرق قطن من مقاس M وهو اول مقاس فى الرجالى 
+          وحتى مقاس 3XL ولذلك فهوا مناسب للرجال بكافة مقاسات القميص الرجالى الاكسفورد القطن
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  
+  
